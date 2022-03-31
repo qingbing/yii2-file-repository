@@ -45,7 +45,7 @@ class FileController extends RestController
         // 业务处理
         $res = $this->service->list($params);
         // 渲染结果
-        return $this->success($res, '区块选项列表');
+        return $this->success($res, '文件列表');
     }
 
     /**

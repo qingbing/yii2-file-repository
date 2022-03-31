@@ -13,7 +13,6 @@ use YiiFileRepository\models\FileRepository;
 use YiiHelper\abstracts\Service;
 use YiiHelper\helpers\Pager;
 use Zf\Helper\Exceptions\BusinessException;
-use Zf\Helper\Util;
 
 /**
  * 服务: 文件仓库(文件池)管理
@@ -51,10 +50,6 @@ class FileService extends Service implements IFileService
     {
         $model = new FileRepository();
         $model->setFilterAttributes($params);
-        if (empty($model->unique_key)) {
-            // 界面未传递标志key时，自动创建
-            $model->unique_key = Util::uniqid();
-        }
         return $model->saveOrException();
     }
 
